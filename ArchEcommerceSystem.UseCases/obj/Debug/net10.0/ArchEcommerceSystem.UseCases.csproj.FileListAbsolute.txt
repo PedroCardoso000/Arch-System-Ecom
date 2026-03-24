@@ -1,0 +1,15 @@
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\bin\Debug\net10.0\ArchEcommerceSystem.UseCases.deps.json
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\bin\Debug\net10.0\ArchEcommerceSystem.UseCases.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\bin\Debug\net10.0\ArchEcommerceSystem.UseCases.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\bin\Debug\net10.0\ArchEcommerceSystem.Core.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\bin\Debug\net10.0\ArchEcommerceSystem.Core.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.csproj.AssemblyReference.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.AssemblyInfoInputs.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.AssemblyInfo.cs
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.csproj.CoreCompileInputs.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcom.8F5ED18A.Up2Date
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\refint\ArchEcommerceSystem.UseCases.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ref\ArchEcommerceSystem.UseCases.dll

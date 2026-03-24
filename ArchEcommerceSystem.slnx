@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="ArchEcommerceSystem.Core/ArchEcommerceSystem.Core.csproj" />
+  <Project Path="ArchEcommerceSystem.Infrastructure/ArchEcommerceSystem.Infrastructure.csproj" />
+  <Project Path="ArchEcommerceSystem.UseCases/ArchEcommerceSystem.UseCases.csproj" />
+  <Project Path="ArchEcommerceSystem.WebApi/ArchEcommerceSystem.WebApi.csproj" />
+</Solution>

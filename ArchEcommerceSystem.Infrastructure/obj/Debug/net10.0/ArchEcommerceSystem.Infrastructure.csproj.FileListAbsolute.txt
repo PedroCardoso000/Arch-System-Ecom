@@ -1,0 +1,17 @@
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Infrastructure.deps.json
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Infrastructure.runtimeconfig.json
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Infrastructure.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Infrastructure.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Core.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\bin\Debug\net10.0\ArchEcommerceSystem.Core.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.AssemblyInfo.cs
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcom.CDB93974.Up2Date
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\refint\ArchEcommerceSystem.Infrastructure.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.pdb
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.genruntimeconfig.cache
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ref\ArchEcommerceSystem.Infrastructure.dll
