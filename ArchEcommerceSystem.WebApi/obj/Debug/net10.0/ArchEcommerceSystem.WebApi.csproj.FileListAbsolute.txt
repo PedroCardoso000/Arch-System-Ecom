@@ -190,3 +190,4 @@ C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.W
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.WebApi\bin\Debug\net10.0\runtimes\win-x86\native\vcruntime140.dll
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.WebApi\bin\Debug\net10.0\runtimes\win-x86\native\zlib1.dll
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.WebApi\bin\Debug\net10.0\runtimes\win-x86\native\zstd.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.WebApi\obj\Debug\net10.0\ArchEcommerceSystem.WebApi.sourcelink.json

@@ -13,3 +13,4 @@ C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.U
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\refint\ArchEcommerceSystem.UseCases.dll
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.pdb
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ref\ArchEcommerceSystem.UseCases.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.UseCases\obj\Debug\net10.0\ArchEcommerceSystem.UseCases.sourcelink.json

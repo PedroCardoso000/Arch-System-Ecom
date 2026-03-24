@@ -15,3 +15,4 @@ C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.I
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.pdb
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.genruntimeconfig.cache
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ref\ArchEcommerceSystem.Infrastructure.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Infrastructure\obj\Debug\net10.0\ArchEcommerceSystem.Infrastructure.sourcelink.json

@@ -9,3 +9,4 @@ C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.C
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Core\obj\Debug\net10.0\refint\ArchEcommerceSystem.Core.dll
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Core\obj\Debug\net10.0\ArchEcommerceSystem.Core.pdb
 C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Core\obj\Debug\net10.0\ref\ArchEcommerceSystem.Core.dll
+C:\Users\wwwpe\OneDrive\Documentos\Projetos\bnb\arq-system\ArchEcommerceSystem.Core\obj\Debug\net10.0\ArchEcommerceSystem.Core.sourcelink.json
