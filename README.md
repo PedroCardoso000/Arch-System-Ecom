@@ -237,7 +237,7 @@ Sem uso de mocks para manter simplicidade e confiabilidade.
 * Inclusão de itens no pedido
 * Cálculo automático do total
 * Confirmação de pedido
-* Publicação de evento no Kafka
+* Envio de evento de integração para Kafka quando o pedido for confirmado
 
 ---
 
