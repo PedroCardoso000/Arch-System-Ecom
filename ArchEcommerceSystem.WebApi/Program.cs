@@ -92,12 +92,10 @@ app.MapPost("/pedidos", async (
     return Results.Ok(id);
 });
 
-app.MapPost("/pedidos/{id}/itens", async (
-    Guid id,
+app.MapPost("/pedidos/itens", async (
     AddItemPedidoCommand command,
     AddItemPedidoHandler handler) =>
 {
-    command.PedidoId = id;
     await handler.Handle(command);
     return Results.Ok();
 });
@@ -106,8 +104,15 @@ app.MapPost("/pedidos/{id}/confirmar", async (
     Guid id,
     ConfirmarPedidoHandler handler) =>
 {
-    await handler.Handle(new ConfirmarPedidoCommand { PedidoId = id });
-    return Results.Ok();
+    try
+    {
+        await handler.Handle(new ConfirmarPedidoCommand { PedidoId = id });
+        return Results.Ok();
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchEcommerceSystem.UseCases")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+341ef20683c846cc1694babba452fe3241f3e1e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a26eafc73a349dce9e67e394b64af956217564ea")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchEcommerceSystem.UseCases")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchEcommerceSystem.UseCases")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
