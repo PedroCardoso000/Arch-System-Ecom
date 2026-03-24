@@ -1,6 +1,7 @@
 using ArchEcommerceSystem.Core.Interfaces;
 using ArchEcommerceSystem.Core.ValueObjects;
 using ArchEcommerceSystem.UseCases.Commands;
+using ArchEcommerceSystem.Core.DomainServices; 
 
 namespace ArchEcommerceSystem.UseCases.Handlers;
 
@@ -8,13 +9,16 @@ public class AddItemPedidoHandler
 {
     private readonly IPedidoRepository _pedidoRepository;
     private readonly IProdutoRepository _produtoRepository;
+    private readonly CalculadoraPedidoService _calculadora; 
 
     public AddItemPedidoHandler(
         IPedidoRepository pedidoRepository,
-        IProdutoRepository produtoRepository)
+        IProdutoRepository produtoRepository,
+        CalculadoraPedidoService calculadora) 
     {
         _pedidoRepository = pedidoRepository;
         _produtoRepository = produtoRepository;
+        _calculadora = calculadora;
     }
 
     public async Task Handle(AddItemPedidoCommand command)
@@ -29,7 +33,8 @@ public class AddItemPedidoHandler
             produto.Id,
             new Quantidade(command.Quantidade),
             produto.Preco,
-            produto.Ativo
+            produto.Ativo,
+            _calculadora 
         );
 
         await _pedidoRepository.UpdateAsync(pedido);

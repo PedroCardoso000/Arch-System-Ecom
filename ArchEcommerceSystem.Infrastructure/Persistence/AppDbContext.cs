@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ArchEcommerceSystem.Core.Aggregates;
 using ArchEcommerceSystem.Core.Entities;
+using System.Text.Json;
 
 namespace ArchEcommerceSystem.Infrastructure.Persistence;
 
@@ -19,11 +20,9 @@ public class AppDbContext : DbContext
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         var domainEvents = ChangeTracker
-            .Entries<BaseEntity>()
-            .SelectMany(x => x.Entity.DomainEvents)
-            .ToList();
-
-        var result = await base.SaveChangesAsync(cancellationToken);
+          .Entries<BaseEntity>()
+          .SelectMany(x => x.Entity.DomainEvents)
+          .ToList();
 
         foreach (var domainEvent in domainEvents)
         {
@@ -31,16 +30,14 @@ public class AppDbContext : DbContext
             {
                 Id = Guid.NewGuid(),
                 Type = domainEvent.GetType().Name,
-                Payload = System.Text.Json.JsonSerializer.Serialize(domainEvent),
+                Payload = JsonSerializer.Serialize(domainEvent),
                 OccurredOn = DateTime.UtcNow
             };
 
             OutboxMessages.Add(outboxMessage);
         }
 
-        await base.SaveChangesAsync(cancellationToken);
-
-        return result;
+        return await base.SaveChangesAsync(cancellationToken);
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

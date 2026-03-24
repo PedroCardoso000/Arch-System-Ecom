@@ -7,10 +7,10 @@ using ArchEcommerceSystem.UseCases.Queries;
 using ArchEcommerceSystem.UseCases.Commands;
 using ArchEcommerceSystem.Infrastructure.Workers;
 using ArchEcommerceSystem.Infrastructure.Kafka;
+using ArchEcommerceSystem.Core.DomainServices;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// DB
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -22,25 +22,21 @@ builder.Services.AddDbContext<AppDbContext>(options =>
                 errorNumbersToAdd: null);
         }));
 
-// Kafka
 builder.Services.AddSingleton<KafkaProducer>();
 
-// Worker
 builder.Services.AddHostedService<OutboxWorker>();
 
-// Handlers (COMMANDS)
 builder.Services.AddScoped<CreatePedidoHandler>();
 builder.Services.AddScoped<AddItemPedidoHandler>();
 builder.Services.AddScoped<ConfirmarPedidoHandler>();
 builder.Services.AddScoped<CreateClienteHandler>();   
-builder.Services.AddScoped<CreateProdutoHandler>();  
+builder.Services.AddScoped<CreateProdutoHandler>();
+builder.Services.AddScoped<CalculadoraPedidoService>();
 
-// Handlers (QUERIES)
 builder.Services.AddScoped<GetPedidoByIdHandler>();
 builder.Services.AddScoped<GetProdutoHandler>();
 builder.Services.AddScoped<GetClienteByIdHandler>();
 
-// Repositories
 builder.Services.AddScoped<IPedidoRepository, PedidoRepository>();
 builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
 builder.Services.AddScoped<IProdutoRepository, ProdutoRepository>();

@@ -1,6 +1,7 @@
 using ArchEcommerceSystem.Core.Entities;
 using ArchEcommerceSystem.Core.ValueObjects;
 using ArchEcommerceSystem.Core.DomainEvents;
+using ArchEcommerceSystem.Core.DomainServices;
 
 namespace ArchEcommerceSystem.Core.Aggregates;
 
@@ -24,7 +25,12 @@ public class Pedido : BaseEntity
         ValorTotal = new Money(0);
     }
 
-    public void AdicionarItem(Guid produtoId, Quantidade quantidade, Money precoUnitario, bool produtoAtivo)
+    public void AdicionarItem(
+        Guid produtoId,
+        Quantidade quantidade,
+        Money precoUnitario,
+        bool produtoAtivo,
+        CalculadoraPedidoService calculadora)
     {
         if (!produtoAtivo)
             throw new InvalidOperationException("Produto inativo");
@@ -32,24 +38,18 @@ public class Pedido : BaseEntity
         var item = new ItemPedido(produtoId, quantidade, precoUnitario);
         _itens.Add(item);
 
-        RecalcularTotal();
+        ValorTotal = calculadora.CalcularTotal(_itens);
     }
 
-    public void RemoverItem(Guid produtoId)
+    public void RemoverItem(Guid produtoId, CalculadoraPedidoService calculadora)
     {
         var item = _itens.FirstOrDefault(i => i.ProdutoId == produtoId);
 
         if (item != null)
         {
             _itens.Remove(item);
-            RecalcularTotal();
+            ValorTotal = calculadora.CalcularTotal(_itens);
         }
-    }
-
-    private void RecalcularTotal()
-    {
-        var total = _itens.Sum(i => i.Subtotal.Value);
-        ValorTotal = new Money(total);
     }
 
     public void ConfirmarPedido()
