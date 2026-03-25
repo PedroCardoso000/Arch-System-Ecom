@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchEcommerceSystem.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+341ef20683c846cc1694babba452fe3241f3e1e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b70865b25e6a87ed160bab92e83ef3ca0e705edd")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchEcommerceSystem.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchEcommerceSystem.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

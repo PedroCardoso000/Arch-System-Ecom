@@ -11,10 +11,8 @@ public class PedidoTests
 	[Fact]
 	public void Deve_Calcular_Total_Corretamente()
 	{
-		// Arrange
 		var pedido = new Pedido(Guid.NewGuid());
 
-		// Act
 		pedido.AdicionarItem(
 			Guid.NewGuid(),
 			new Quantidade(2),
@@ -31,17 +29,14 @@ public class PedidoTests
 			_calculadora
 		);
 
-		// Assert
 		Assert.Equal(25, pedido.ValorTotal.Value);
 	}
 
 	[Fact]
 	public void Nao_Deve_Confirmar_Pedido_Sem_Itens()
 	{
-		// Arrange
 		var pedido = new Pedido(Guid.NewGuid());
 
-		// Act & Assert
 		Assert.Throws<InvalidOperationException>(() => pedido.ConfirmarPedido());
 	}
 

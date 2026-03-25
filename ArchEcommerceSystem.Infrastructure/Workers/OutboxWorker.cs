@@ -1,5 +1,3 @@
-namespace ArchEcommerceSystem.Infrastructure.Workers;
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,6 +6,7 @@ using ArchEcommerceSystem.Infrastructure.Kafka;
 using ArchEcommerceSystem.Core.DomainEvents;
 using System.Text.Json;
 
+namespace ArchEcommerceSystem.Infrastructure.Workers;
 
 public class OutboxWorker : BackgroundService
 {
@@ -29,26 +28,40 @@ public class OutboxWorker : BackgroundService
 
             var messages = await context.OutboxMessages
                 .Where(x => x.ProcessedOn == null)
+                .OrderBy(x => x.OccurredOn) 
+                .Take(50) 
                 .ToListAsync(stoppingToken);
 
             foreach (var message in messages)
             {
-                if (message.Type == "PedidoConfirmadoDomainEvent")
+                try
                 {
-                    var domainEvent = JsonSerializer.Deserialize<PedidoConfirmadoDomainEvent>(message.Payload);
-
-                    var integrationEvent = new PedidoConfirmadoIntegrationEvent
+                    if (message.Type == nameof(PedidoConfirmadoDomainEvent))
                     {
-                        PedidoId = domainEvent!.PedidoId,
-                        ClienteId = domainEvent.ClienteId,
-                        ValorTotal = domainEvent.ValorTotal,
-                        DataConfirmacao = DateTime.UtcNow
-                    };
+                        var domainEvent = JsonSerializer.Deserialize<PedidoConfirmadoDomainEvent>(message.Payload);
 
-                    await producer.PublishAsync("pedido-confirmado", integrationEvent);
+                        var integrationEvent = new PedidoConfirmadoIntegrationEvent
+                        {
+                            EventId = Guid.NewGuid(), 
+                            PedidoId = domainEvent!.PedidoId,
+                            ClienteId = domainEvent.ClienteId,
+                            ValorTotal = domainEvent.ValorTotal,
+                            DataConfirmacao = DateTime.UtcNow
+                        };
+
+                        await producer.PublishAsync(
+                            "pedido-confirmado",
+                            integrationEvent.PedidoId.ToString(), 
+                            integrationEvent
+                        );
+                    }
+
+                    message.ProcessedOn = DateTime.UtcNow;
                 }
-
-                message.ProcessedOn = DateTime.UtcNow;
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"Erro ao processar mensagem: {ex.Message}");
+                }
             }
 
             await context.SaveChangesAsync(stoppingToken);

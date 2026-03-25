@@ -54,6 +54,9 @@ public class Pedido : BaseEntity
 
     public void ConfirmarPedido()
     {
+        if (Status == PedidoStatus.Confirmado)
+            throw new InvalidOperationException("Pedido já foi confirmado");
+
         if (!_itens.Any())
             throw new InvalidOperationException("Pedido não possui itens");
 

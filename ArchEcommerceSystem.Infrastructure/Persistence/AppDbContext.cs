@@ -20,9 +20,9 @@ public class AppDbContext : DbContext
     public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         var domainEvents = ChangeTracker
-          .Entries<BaseEntity>()
-          .SelectMany(x => x.Entity.DomainEvents)
-          .ToList();
+            .Entries<BaseEntity>()
+            .SelectMany(x => x.Entity.DomainEvents)
+            .ToList();
 
         foreach (var domainEvent in domainEvents)
         {
@@ -37,7 +37,14 @@ public class AppDbContext : DbContext
             OutboxMessages.Add(outboxMessage);
         }
 
-        return await base.SaveChangesAsync(cancellationToken);
+        var result = await base.SaveChangesAsync(cancellationToken);
+
+        foreach (var entity in ChangeTracker.Entries<BaseEntity>())
+        {
+            entity.Entity.ClearDomainEvents();
+        }
+
+        return result;
     }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)

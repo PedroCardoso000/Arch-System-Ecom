@@ -5,7 +5,7 @@ namespace ArchEcommerceSystem.Infrastructure.Kafka;
 
 public class KafkaProducer
 {
-    private readonly IProducer<Null, string> _producer;
+    private readonly IProducer<string, string> _producer;
 
     public KafkaProducer()
     {
@@ -14,15 +14,16 @@ public class KafkaProducer
             BootstrapServers = "kafka:9092"
         };
 
-        _producer = new ProducerBuilder<Null, string>(config).Build();
+        _producer = new ProducerBuilder<string, string>(config).Build();
     }
 
-    public async Task PublishAsync(string topic, object message)
+    public async Task PublishAsync(string topic, string key, object message)
     {
         var json = JsonSerializer.Serialize(message);
 
-        await _producer.ProduceAsync(topic, new Message<Null, string>
+        await _producer.ProduceAsync(topic, new Message<string, string>
         {
+            Key = key, 
             Value = json
         });
     }
