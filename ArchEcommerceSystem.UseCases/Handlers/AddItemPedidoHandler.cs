@@ -9,16 +9,13 @@ public class AddItemPedidoHandler
 {
     private readonly IPedidoRepository _pedidoRepository;
     private readonly IProdutoRepository _produtoRepository;
-    private readonly CalculadoraPedidoService _calculadora; 
 
     public AddItemPedidoHandler(
         IPedidoRepository pedidoRepository,
-        IProdutoRepository produtoRepository,
-        CalculadoraPedidoService calculadora) 
+        IProdutoRepository produtoRepository)
     {
         _pedidoRepository = pedidoRepository;
         _produtoRepository = produtoRepository;
-        _calculadora = calculadora;
     }
 
     public async Task Handle(AddItemPedidoCommand command)
@@ -33,8 +30,7 @@ public class AddItemPedidoHandler
             produto.Id,
             new Quantidade(command.Quantidade),
             produto.Preco,
-            produto.Ativo,
-            _calculadora 
+            produto.Ativo
         );
 
         await _pedidoRepository.UpdateAsync(pedido);

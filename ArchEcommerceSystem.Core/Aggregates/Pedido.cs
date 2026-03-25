@@ -26,29 +26,31 @@ public class Pedido : BaseEntity
     }
 
     public void AdicionarItem(
-        Guid produtoId,
-        Quantidade quantidade,
-        Money precoUnitario,
-        bool produtoAtivo,
-        CalculadoraPedidoService calculadora)
+    Guid produtoId,
+    Quantidade quantidade,
+    Money precoUnitario,
+    bool produtoAtivo)
     {
+        if (Status == PedidoStatus.Confirmado)
+            throw new InvalidOperationException("Pedido já confirmado");
+
         if (!produtoAtivo)
             throw new InvalidOperationException("Produto inativo");
 
         var item = new ItemPedido(produtoId, quantidade, precoUnitario);
         _itens.Add(item);
 
-        ValorTotal = calculadora.CalcularTotal(_itens);
+        RecalcularTotal();
     }
 
-    public void RemoverItem(Guid produtoId, CalculadoraPedidoService calculadora)
+    public void RemoverItem(Guid produtoId)
     {
         var item = _itens.FirstOrDefault(i => i.ProdutoId == produtoId);
 
         if (item != null)
         {
             _itens.Remove(item);
-            ValorTotal = calculadora.CalcularTotal(_itens);
+            RecalcularTotal();
         }
     }
 
@@ -67,5 +69,11 @@ public class Pedido : BaseEntity
             ClienteId,
             ValorTotal.Value
         ));
+    }
+
+    private void RecalcularTotal()
+    {
+        var total = _itens.Sum(i => i.Subtotal.Value);
+        ValorTotal = new Money(total);
     }
 }

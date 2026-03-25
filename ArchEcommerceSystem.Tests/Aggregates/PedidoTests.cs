@@ -6,7 +6,6 @@ namespace ArchEcommerceSystem.Tests.Aggregates;
 
 public class PedidoTests
 {
-	private readonly CalculadoraPedidoService _calculadora = new();
 
 	[Fact]
 	public void Deve_Calcular_Total_Corretamente()
@@ -17,16 +16,14 @@ public class PedidoTests
 			Guid.NewGuid(),
 			new Quantidade(2),
 			new Money(10),
-			true,
-			_calculadora
+			true
 		);
 
 		pedido.AdicionarItem(
 			Guid.NewGuid(),
 			new Quantidade(1),
 			new Money(5),
-			true,
-			_calculadora
+			true
 		);
 
 		Assert.Equal(25, pedido.ValorTotal.Value);
@@ -50,8 +47,7 @@ public class PedidoTests
 				Guid.NewGuid(),
 				new Quantidade(1),
 				new Money(10),
-				false,
-				_calculadora
+				false
 			)
 		);
 	}
@@ -65,8 +61,7 @@ public class PedidoTests
 			Guid.NewGuid(),
 			new Quantidade(1),
 			new Money(10),
-			true,
-			_calculadora
+			true
 		);
 
 		pedido.ConfirmarPedido();
