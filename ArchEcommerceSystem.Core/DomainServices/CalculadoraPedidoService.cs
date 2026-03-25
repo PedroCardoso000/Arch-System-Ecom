@@ -3,6 +3,7 @@ using ArchEcommerceSystem.Core.ValueObjects;
 
 namespace ArchEcommerceSystem.Core.DomainServices;
 
+// Cenários mais complexos como frete, desconto ou impostos.
 public class CalculadoraPedidoService
 {
     public Money CalcularTotal(IEnumerable<ItemPedido> itens)
