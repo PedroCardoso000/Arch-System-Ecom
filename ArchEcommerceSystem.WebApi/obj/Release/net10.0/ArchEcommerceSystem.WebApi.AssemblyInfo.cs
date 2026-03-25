@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchEcommerceSystem.WebApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+783e53578182d88e452b6b0b1e113142a1d9db6e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8aadb12ceae7690d6cf06a82c18cb879d0501c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchEcommerceSystem.WebApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchEcommerceSystem.WebApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

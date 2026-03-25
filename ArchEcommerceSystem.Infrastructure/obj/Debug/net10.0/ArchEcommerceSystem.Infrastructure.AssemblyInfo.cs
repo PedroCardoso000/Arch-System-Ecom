@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b70865b25e6a87ed160bab92e83ef3ca0e705edd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a8aadb12ceae7690d6cf06a82c18cb879d0501c1")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

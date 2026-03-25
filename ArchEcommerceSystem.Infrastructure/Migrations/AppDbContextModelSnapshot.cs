@@ -84,6 +84,9 @@ namespace ArchEcommerceSystem.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<DateTime?>("ErrorOn")
+                        .HasColumnType("datetime2");
+
                     b.Property<DateTime>("OccurredOn")
                         .HasColumnType("datetime2");
 
@@ -93,6 +96,9 @@ namespace ArchEcommerceSystem.Infrastructure.Migrations
 
                     b.Property<DateTime?>("ProcessedOn")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("RetryCount")
+                        .HasColumnType("int");
 
                     b.Property<string>("Type")
                         .IsRequired()
@@ -135,6 +141,7 @@ namespace ArchEcommerceSystem.Infrastructure.Migrations
                                 .HasColumnType("uniqueidentifier");
 
                             b1.Property<decimal>("Value")
+                                .HasPrecision(18, 2)
                                 .HasColumnType("decimal(18,2)")
                                 .HasColumnName("ValorTotal");
 
@@ -176,6 +183,7 @@ namespace ArchEcommerceSystem.Infrastructure.Migrations
                                         .HasColumnType("int");
 
                                     b2.Property<decimal>("Value")
+                                        .HasPrecision(18, 2)
                                         .HasColumnType("decimal(18,2)")
                                         .HasColumnName("PrecoUnitario");
 

@@ -143,19 +143,21 @@ using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
 
-    var retries = 10;
+    var retries = 30;
 
     while (retries > 0)
     {
         try
         {
+            db.Database.EnsureCreated();
             db.Database.Migrate();
             break;
         }
-        catch
+        catch (Exception ex)
         {
+            Console.WriteLine($"Tentando conectar no banco... {ex.Message}");
             retries--;
-            Thread.Sleep(3000);
+            Thread.Sleep(5000);
         }
     }
 }

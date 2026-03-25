@@ -27,9 +27,9 @@ public class OutboxWorker : BackgroundService
             var producer = scope.ServiceProvider.GetRequiredService<KafkaProducer>();
 
             var messages = await context.OutboxMessages
-                .Where(x => x.ProcessedOn == null)
-                .OrderBy(x => x.OccurredOn) 
-                .Take(50) 
+                .Where(x => x.ProcessedOn == null && x.RetryCount < 5)
+                .OrderBy(x => x.OccurredOn)
+                .Take(50)
                 .ToListAsync(stoppingToken);
 
             foreach (var message in messages)
@@ -40,10 +40,13 @@ public class OutboxWorker : BackgroundService
                     {
                         var domainEvent = JsonSerializer.Deserialize<PedidoConfirmadoDomainEvent>(message.Payload);
 
+                        if (domainEvent == null)
+                            throw new Exception("Erro ao deserializar evento");
+
                         var integrationEvent = new PedidoConfirmadoIntegrationEvent
                         {
-                            EventId = Guid.NewGuid(), 
-                            PedidoId = domainEvent!.PedidoId,
+                            EventId = Guid.NewGuid(),
+                            PedidoId = domainEvent.PedidoId,
                             ClienteId = domainEvent.ClienteId,
                             ValorTotal = domainEvent.ValorTotal,
                             DataConfirmacao = DateTime.UtcNow
@@ -51,7 +54,7 @@ public class OutboxWorker : BackgroundService
 
                         await producer.PublishAsync(
                             "pedido-confirmado",
-                            integrationEvent.PedidoId.ToString(), 
+                            integrationEvent.PedidoId.ToString(),
                             integrationEvent
                         );
                     }
@@ -60,7 +63,20 @@ public class OutboxWorker : BackgroundService
                 }
                 catch (Exception ex)
                 {
-                    Console.WriteLine($"Erro ao processar mensagem: {ex.Message}");
+                    message.RetryCount++;
+
+                    Console.WriteLine(
+                        $"Erro ao processar mensagem {message.Id} | Tentativa {message.RetryCount}: {ex.Message}"
+                    );
+
+                    if (message.RetryCount >= 5)
+                    {
+                        message.ErrorOn = DateTime.UtcNow;
+
+                        Console.WriteLine(
+                            $"Mensagem {message.Id} marcada como erro definitivo."
+                        );
+                    }
                 }
             }
 

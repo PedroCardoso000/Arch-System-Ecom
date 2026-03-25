@@ -68,6 +68,7 @@ public class AppDbContext : DbContext
             {
                 money.Property(m => m.Value)
                      .HasColumnName("ValorTotal")
+                           .HasPrecision(18, 2)
                      .IsRequired();
             });
 
@@ -78,7 +79,8 @@ public class AppDbContext : DbContext
                 item.OwnsOne(i => i.PrecoUnitario, money =>
                 {
                     money.Property(m => m.Value)
-                         .HasColumnName("PrecoUnitario");
+                         .HasColumnName("PrecoUnitario")
+                               .HasPrecision(18, 2);
                 });
 
                 item.OwnsOne(i => i.Quantidade, q =>

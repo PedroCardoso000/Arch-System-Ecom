@@ -1,20 +1,21 @@
 using Confluent.Kafka;
 using System.Text.Json;
+using Microsoft.Extensions.Configuration;
 
 namespace ArchEcommerceSystem.Infrastructure.Kafka;
 
-public class KafkaProducer
+public class KafkaProducer : IDisposable
 {
     private readonly IProducer<string, string> _producer;
 
-    public KafkaProducer()
+    public KafkaProducer(IConfiguration configuration)
     {
-        var config = new ProducerConfig
+        var producerConfig = new ProducerConfig
         {
-            BootstrapServers = "kafka:9092"
+            BootstrapServers = configuration["Kafka:BootstrapServers"]
         };
 
-        _producer = new ProducerBuilder<string, string>(config).Build();
+        _producer = new ProducerBuilder<string, string>(producerConfig).Build();
     }
 
     public async Task PublishAsync(string topic, string key, object message)
@@ -23,8 +24,14 @@ public class KafkaProducer
 
         await _producer.ProduceAsync(topic, new Message<string, string>
         {
-            Key = key, 
+            Key = key,
             Value = json
         });
+    }
+
+    public void Dispose()
+    {
+        _producer.Flush(TimeSpan.FromSeconds(5));
+        _producer.Dispose();
     }
 }
