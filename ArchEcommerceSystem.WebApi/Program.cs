@@ -96,8 +96,15 @@ app.MapPost("/pedidos/itens", async (
     AddItemPedidoCommand command,
     AddItemPedidoHandler handler) =>
 {
-    await handler.Handle(command);
-    return Results.Ok();
+    try
+    {
+        await handler.Handle(command);
+        return Results.Ok();
+    }
+    catch (InvalidOperationException ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 app.MapPost("/pedidos/{id}/confirmar", async (
