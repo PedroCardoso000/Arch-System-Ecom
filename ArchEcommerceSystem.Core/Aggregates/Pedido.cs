@@ -39,7 +39,7 @@ public class Pedido : BaseEntity
 
         var item = new ItemPedido(produtoId, quantidade, precoUnitario);
         _itens.Add(item);
-
+        
         RecalcularTotal();
     }
 

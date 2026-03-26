@@ -24,4 +24,10 @@ public class ClienteRepository : IClienteRepository
     {
         return await _context.Clientes.FirstOrDefaultAsync(c => c.Id == id);
     }
+
+    public async Task<Cliente?> GetByEmailAsync(string email)
+    {
+        return await _context.Clientes
+            .FirstOrDefaultAsync(c => c.Email.Value == email);
+    }
 }

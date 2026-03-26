@@ -15,6 +15,11 @@ public class CreateClienteHandler
 
     public async Task<Guid> Handle(CreateClienteCommand command)
     {
+        var clienteExistente = await _repository.GetByEmailAsync(command.Email);
+
+        if (clienteExistente != null)
+            throw new InvalidOperationException("Já existe um cliente com este email");
+
         var cliente = new Cliente(command.Nome, new Email(command.Email));
 
         await _repository.AddAsync(cliente);

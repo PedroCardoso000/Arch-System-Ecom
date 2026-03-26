@@ -7,4 +7,5 @@ public interface IClienteRepository
 {
     Task<Cliente?> GetByIdAsync(Guid id);
     Task AddAsync(Cliente cliente);
+    Task<Cliente?> GetByEmailAsync(string email);
 }
