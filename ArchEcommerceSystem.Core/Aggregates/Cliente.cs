@@ -16,6 +16,7 @@ public class Cliente : BaseEntity
         if (string.IsNullOrWhiteSpace(nome))
             throw new ArgumentException("Nome é obrigatório");
 
+
         Nome = nome;
         Email = email;
         DataCadastro = DateTime.UtcNow;

@@ -49,7 +49,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-app.MapGet("/", () => "API rodando");
+app.MapGet("/", () => "API funcional");
 
 
 // =========================
@@ -88,8 +88,15 @@ app.MapPost("/pedidos", async (
     CreatePedidoCommand command,
     CreatePedidoHandler handler) =>
 {
-    var id = await handler.Handle(command);
-    return Results.Ok(id);
+    try
+    {
+        var id = await handler.Handle(command);
+        return Results.Ok(id);
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 app.MapPost("/pedidos/itens", async (
@@ -101,7 +108,7 @@ app.MapPost("/pedidos/itens", async (
         await handler.Handle(command);
         return Results.Ok();
     }
-    catch (InvalidOperationException ex)
+    catch (Exception ex)
     {
         return Results.BadRequest(ex.Message);
     }
@@ -116,7 +123,7 @@ app.MapPost("/pedidos/{id}/confirmar", async (
         await handler.Handle(new ConfirmarPedidoCommand { PedidoId = id });
         return Results.Ok();
     }
-    catch (InvalidOperationException ex)
+    catch (Exception ex)
     {
         return Results.BadRequest(ex.Message);
     }
@@ -128,8 +135,15 @@ app.MapPost("/clientes", async (
     CreateClienteCommand command,
     CreateClienteHandler handler) =>
 {
-    var id = await handler.Handle(command);
-    return Results.Ok(id);
+    try
+    {
+        var id = await handler.Handle(command);
+        return Results.Ok(id);
+    }
+     catch (Exception ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 // Produto
@@ -137,8 +151,15 @@ app.MapPost("/produtos", async (
     CreateProdutoCommand command,
     CreateProdutoHandler handler) =>
 {
-    var id = await handler.Handle(command);
-    return Results.Ok(id);
+    try
+    {
+        var id = await handler.Handle(command);
+        return Results.Ok(id);
+    }
+    catch (Exception ex)
+    {
+        return Results.BadRequest(ex.Message);
+    }
 });
 
 

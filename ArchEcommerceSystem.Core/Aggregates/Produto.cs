@@ -15,6 +15,7 @@ public class Produto : BaseEntity
     {
         if (string.IsNullOrWhiteSpace(nome))
             throw new ArgumentException("Nome é obrigatório");
+           
 
         Nome = nome;
         Preco = preco;

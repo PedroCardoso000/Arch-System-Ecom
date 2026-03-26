@@ -1,4 +1,4 @@
-using ArchEcommerceSystem.Core.Entities;
+    using ArchEcommerceSystem.Core.Entities;
 using ArchEcommerceSystem.Core.ValueObjects;
 using ArchEcommerceSystem.Core.DomainEvents;
 using ArchEcommerceSystem.Core.DomainServices;
