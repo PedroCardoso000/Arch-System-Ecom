@@ -16,7 +16,7 @@ Mini sistema de e-commerce desenvolvido como teste técnico com foco em arquitet
 ## ▶️ Subindo a aplicação
 
 ```bash
-docker compose up --build
+docker compose up -d --build
 ```
 
 ---
