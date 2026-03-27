@@ -194,6 +194,7 @@ Utilizado para publicação de eventos de integração:
 
 * Topic: `pedido-confirmado`
 * Payload contém dados do pedido confirmado
+* Kafka__BootstrapServers=SEU_HOST_KAFKA:PORTA
 
 ---
 
