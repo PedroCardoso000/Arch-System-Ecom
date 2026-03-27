@@ -8,6 +8,7 @@ using ArchEcommerceSystem.UseCases.Commands;
 using ArchEcommerceSystem.Infrastructure.Workers;
 using ArchEcommerceSystem.Infrastructure.Kafka;
 using ArchEcommerceSystem.Core.DomainServices;
+using ArchEcommerceSystem.WebApi.Endpoints;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -51,116 +52,9 @@ app.UseSwaggerUI();
 
 app.MapGet("/", () => "API funcional");
 
-
-// =========================
-// GETs
-// =========================
-
-app.MapGet("/produtos", async (GetProdutoHandler handler) =>
-{
-    var result = await handler.Handle();
-    return Results.Ok(result);
-});
-
-app.MapGet("/pedidos/{id}", async (
-    Guid id,
-    GetPedidoByIdHandler handler) =>
-{
-    var result = await handler.Handle(new GetPedidoByIdQuery { Id = id });
-    return result is null ? Results.NotFound() : Results.Ok(result);
-});
-
-app.MapGet("/clientes/{id}", async (
-    Guid id,
-    GetClienteByIdHandler handler) =>
-{
-    var result = await handler.Handle(new GetClienteByIdQuery { Id = id });
-    return result is null ? Results.NotFound() : Results.Ok(result);
-});
-
-
-// =========================
-// POSTs
-// =========================
-
-// Pedido
-app.MapPost("/pedidos", async (
-    CreatePedidoCommand command,
-    CreatePedidoHandler handler) =>
-{
-    try
-    {
-        var id = await handler.Handle(command);
-        return Results.Ok(id);
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
-
-app.MapPost("/pedidos/itens", async (
-    AddItemPedidoCommand command,
-    AddItemPedidoHandler handler) =>
-{
-    try
-    {
-        await handler.Handle(command);
-        return Results.Ok();
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
-
-app.MapPost("/pedidos/{id}/confirmar", async (
-    Guid id,
-    ConfirmarPedidoHandler handler) =>
-{
-    try
-    {
-        await handler.Handle(new ConfirmarPedidoCommand { PedidoId = id });
-        return Results.Ok();
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
-
-
-// Cliente
-app.MapPost("/clientes", async (
-    CreateClienteCommand command,
-    CreateClienteHandler handler) =>
-{
-    try
-    {
-        var id = await handler.Handle(command);
-        return Results.Ok(id);
-    }
-     catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
-
-// Produto
-app.MapPost("/produtos", async (
-    CreateProdutoCommand command,
-    CreateProdutoHandler handler) =>
-{
-    try
-    {
-        var id = await handler.Handle(command);
-        return Results.Ok(id);
-    }
-    catch (Exception ex)
-    {
-        return Results.BadRequest(ex.Message);
-    }
-});
+app.MapPedidoEndpoints();
+app.MapClienteEndpoints();
+app.MapProdutoEndpoints();
 
 
 // =========================

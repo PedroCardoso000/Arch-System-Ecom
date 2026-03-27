@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+45159ad2821400f597bafac27cafae1a5b6f82f7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+603aa541bb2988de2c20a2a17aaf16fea3a8ea9a")]
 [assembly: System.Reflection.AssemblyProductAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ArchEcommerceSystem.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
