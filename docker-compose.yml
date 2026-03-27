@@ -24,7 +24,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=EcommerceDb;User Id=sa;Password=YourStrong!Pass123;TrustServerCertificate=True
-      - Kafka__BootstrapServers=kafka:9092
+      - Kafka__BootstrapServers=SEU_HOST_KAFKA:PORTA
     networks:
       - ecommerce-network
 
