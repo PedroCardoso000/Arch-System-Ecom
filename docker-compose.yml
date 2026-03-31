@@ -9,8 +9,8 @@ services:
       ACCEPT_EULA: "Y"
     ports:
       - "1433:1433"
-    networks:
-      - ecommerce-network
+    # networks:
+    #   - ecommerce-network
 
   api:
     build:
@@ -24,9 +24,9 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__DefaultConnection=Server=sqlserver,1433;Database=EcommerceDb;User Id=sa;Password=YourStrong!Pass123;TrustServerCertificate=True
-      - Kafka__BootstrapServers=SEU_HOST_KAFKA:PORTA
-    networks:
-      - ecommerce-network
+      - Kafka__BootstrapServers={SEU_HOST_KAFKA:PORTA}
+    # networks:
+    #   - ecommerce-network
 
 # networks:
 #   ecommerce-network:
