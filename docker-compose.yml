@@ -28,6 +28,6 @@ services:
     networks:
       - ecommerce-network
 
-networks:
-  ecommerce-network:
-    external: true
+# networks:
+#   ecommerce-network:
+#     external: true
